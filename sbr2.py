@@ -17,8 +17,6 @@ def read_adjusted_time():
         print("Invalid value in adjusted_time.txt. Using default value.")
         return 0.3
 
-adjusted_time = read_adjusted_time()
-
 def read_header(bus):
     try:
         bridge_control_output = subprocess.check_output(["setpci", "-s", bus, "0e.w"])
@@ -156,7 +154,7 @@ def progress_bar(iteration, total, prefix='', suffix='', decimals=1, length=50, 
     if iteration == total:
         print()
 
-def run_test(stdscr, user_password, inputnum_loops, kill, slotlist):
+def run_test(stdscr, user_password, inputnum_loops, kill, slotlist, adjusted_time):
     stdscr.clear()
     stdscr.addstr(0, 0, "Running the test...\n")
     stdscr.refresh()
