@@ -41,7 +41,7 @@ def reset_to_original_values():
         try:
             set_command = f"sudo setpci -s {bdf} CAP_EXP+0x08.w={original_value}"
             run_command(set_command)
-            print(f"BDF: {bdf}, Reset to Original: {original_value}")
+            #print(f"BDF: {bdf}, Reset to Original: {original_value}")
             progress_bar(i + 1, total_bdfs, prefix='Resetting Original Values', suffix='Complete', length=50)
         except Exception as e:
             print(f"Error resetting value for BDF {bdf}: {str(e)}")
